@@ -10,19 +10,19 @@ $(document).ready(function() {
 
   console.log("suits: " + suits);
 
-  suitResult = function () {
-    $("li").click(function() {
-      //console.log(this.id);
-
-      var suitRequest = this.id;
-
+   $("li").click(function() {
+      suitRequest = this.id;
       console.log("suitRequest: " + suitRequest);
-    });
-    switch (suitRequest) {
+   });
+
+  suitResult = function(suitRequest) {
+
+      switch (suitRequest) {
         case "spades":
           console.log("s");
           return "s";
         case "hearts":
+          console.log("h");
           return "h";
         case "clubs":
           return "c";
@@ -33,13 +33,14 @@ $(document).ready(function() {
         default:
           return "facedown";
       }
-      //return suitRequest;
-      // Listens for suit request
-      // this is the click and comparison area
-      // compares suits array to the clicked item id
-};
+    };
 
-  console.log("suitResult: " + suitResult());
+    //return suitRequest;
+    // Listens for suit request
+    // this is the click and comparison area
+    // compares suits array to the clicked item id
+
+
 
   //need to append id as suit, no need for next two lines
   // var suit = ["h", "s", "c", "d"];
@@ -69,11 +70,11 @@ $(document).ready(function() {
 
   yourCard = function() {
     switch (numberRandom) {
-      case "joker":
-        return "card-joker";
+      //case "joker":
+       // return "card-joker";
       default:
         return (
-          "card-" + suitResult(suitResult) + "&nbsp;" + "card-" + numberRandom
+          "card-" + suitResult(suitRequest) + "&nbsp;" + "card-" + numberRandom
         );
     }
   };
