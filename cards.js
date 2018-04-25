@@ -12,11 +12,6 @@ $(document).ready(function() {
 
    $("li").click(function() {
       suitRequest = this.id;
-      console.log("suitRequest: " + suitRequest);
-   });
-
-  suitResult = function(suitRequest) {
-
       switch (suitRequest) {
         case "spades":
           console.log("s");
@@ -32,8 +27,11 @@ $(document).ready(function() {
           return "joker";
         default:
           return "facedown";
-      }
-    };
+      };
+     console.log("suitRequest: " + suitRequest);
+   });
+
+
 
     //return suitRequest;
     // Listens for suit request
@@ -68,13 +66,13 @@ $(document).ready(function() {
 
   console.log("randompick: " + numberRandom);
 
-  yourCard = function() {
+  yourCard = function(numberRandom, suitRequest) {
     switch (numberRandom) {
       //case "joker":
        // return "card-joker";
       default:
         return (
-          "card-" + suitResult(suitRequest) + "&nbsp;" + "card-" + numberRandom
+          "card-" + suitRequest+ "&nbsp;" + "card-" + numberRandom
         );
     }
   };
@@ -82,6 +80,7 @@ $(document).ready(function() {
 
   //$("#result").replaceWith(yourCard());
   $("li").click(function() {
-    return $("#result").replaceWith(yourCard);
+    return $("#result").replaceWith("card-" + suitRequest+ "&nbsp;" + "card-" + numberRandom);
   });
+      console.log("card-" + suitRequest+ "&nbsp;" + "card-" + numberRandom);
 });
