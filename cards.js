@@ -62,8 +62,10 @@ $(document).ready(function() {
     console.log("randompick: " + numberRandom);
     console.log("card-" + suitRequest + "&nbsp;" + "card-" + numberRandom);
 
-    $("#result").replaceWith(
-      "card-" + suitRequest + " " + "card-" + numberRandom
-    );
+    $("li").click(function(){
+
+        $("#result").removeClass().addClass("card " + "card-" + suitRequest + " " + "card-" + numberRandom);
+
+    });
   });
 });
