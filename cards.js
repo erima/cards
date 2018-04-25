@@ -10,81 +10,60 @@ $(document).ready(function() {
 
   console.log("suits: " + suits);
 
-   $("li").click(function() {
-      suitRequest = this.id;
-      switch (suitRequest) {
-        case "spades":
-          console.log("s");
-          return "s";
-        case "hearts":
-          console.log("h");
-          return "h";
-        case "clubs":
-          return "c";
-        case "diamonds":
-          return "d";
-        case "joker":
-          return "joker";
-        default:
-          return "facedown";
-      };
-     console.log("suitRequest: " + suitRequest);
-
-       var cardNumber = [
-    "a",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "j",
-    "q",
-    "k",
-    "joker",
-    "joker"
-  ];
-
-numberRandom = cardNumber[Math.floor(Math.random() * cardNumber.length)];
-  console.log("randompick: " + numberRandom);
-
   $("li").click(function() {
-    return $("#result").replaceWith("card-" + suitRequest+ "&nbsp;" + "card-" + numberRandom);
-  });
-      console.log("card-" + suitRequest+ "&nbsp;" + "card-" + numberRandom);
-   });
+    suitRequest = this.id;
+    switch (suitRequest) {
+      case "spades":
+        console.log("s");
+        suitRequest = "s";
+        break;
+      case "hearts":
+        console.log("h");
+        suitRequest = "h";
+        break;
+      case "clubs":
+        console.log("c");
+        suitRequest = "c";
+        break;
+      case "diamonds":
+        console.log("d");
+        suitRequest = "d";
+        break;
+      case "joker":
+        console.log("joker");
 
-
-
-    //return suitRequest;
-    // Listens for suit request
-    // this is the click and comparison area
-    // compares suits array to the clicked item id
-
-
-
-  //need to append id as suit, no need for next two lines
-  // var suit = ["h", "s", "c", "d"];
-  // var suitResult = suit[Math.floor(Math.random() * suit.length)];
-
-
-
-
-  yourCard = function(numberRandom, suitRequest) {
-    switch (numberRandom) {
-      //case "joker":
-       // return "card-joker";
+        suitRequest = "joker";
+        break;
       default:
-        return (
-          "card-" + suitRequest+ "&nbsp;" + "card-" + numberRandom
-        );
+        suitRequest = "facedown";
+        break;
     }
-  };
-  console.log("Your Card CSS: " + yourCard());
+    console.log("suitRequest: " + suitRequest);
 
-  //$("#result").replaceWith(yourCard());
+    var cardNumber = [
+      "a",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "j",
+      "q",
+      "k",
+      "joker",
+      "joker"
+    ];
 
+    numberRandom = cardNumber[Math.floor(Math.random() * cardNumber.length)];
+    console.log("randompick: " + numberRandom);
+    console.log("card-" + suitRequest + "&nbsp;" + "card-" + numberRandom);
+
+    $("#result").replaceWith(
+      "card-" + suitRequest + " " + "card-" + numberRandom
+    );
+  });
 });
