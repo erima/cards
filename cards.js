@@ -29,22 +29,8 @@ $(document).ready(function() {
           return "facedown";
       };
      console.log("suitRequest: " + suitRequest);
-   });
 
-
-
-    //return suitRequest;
-    // Listens for suit request
-    // this is the click and comparison area
-    // compares suits array to the clicked item id
-
-
-
-  //need to append id as suit, no need for next two lines
-  // var suit = ["h", "s", "c", "d"];
-  // var suitResult = suit[Math.floor(Math.random() * suit.length)];
-
-  var cardNumber = [
+       var cardNumber = [
     "a",
     "2",
     "3",
@@ -62,9 +48,30 @@ $(document).ready(function() {
     "joker"
   ];
 
-  var numberRandom = cardNumber[Math.floor(Math.random() * cardNumber.length)];
-
+numberRandom = cardNumber[Math.floor(Math.random() * cardNumber.length)];
   console.log("randompick: " + numberRandom);
+
+  $("li").click(function() {
+    return $("#result").replaceWith("card-" + suitRequest+ "&nbsp;" + "card-" + numberRandom);
+  });
+      console.log("card-" + suitRequest+ "&nbsp;" + "card-" + numberRandom);
+   });
+
+
+
+    //return suitRequest;
+    // Listens for suit request
+    // this is the click and comparison area
+    // compares suits array to the clicked item id
+
+
+
+  //need to append id as suit, no need for next two lines
+  // var suit = ["h", "s", "c", "d"];
+  // var suitResult = suit[Math.floor(Math.random() * suit.length)];
+
+
+
 
   yourCard = function(numberRandom, suitRequest) {
     switch (numberRandom) {
@@ -79,8 +86,5 @@ $(document).ready(function() {
   console.log("Your Card CSS: " + yourCard());
 
   //$("#result").replaceWith(yourCard());
-  $("li").click(function() {
-    return $("#result").replaceWith("card-" + suitRequest+ "&nbsp;" + "card-" + numberRandom);
-  });
-      console.log("card-" + suitRequest+ "&nbsp;" + "card-" + numberRandom);
+
 });
