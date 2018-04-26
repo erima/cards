@@ -10,6 +10,9 @@ body {
  height: 100vh;
   width: 100vw;
 }
+.container {
+  font-size: 2.5em;
+}
 .card-display {
   grid-area: main;
   align-self: center;
