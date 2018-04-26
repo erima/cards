@@ -12,32 +12,7 @@ $(document).ready(function() {
 
   $("li").click(function() {
     suitRequest = this.id;
-    switch (suitRequest) {
-      case "spades":
-        console.log("s");
-        suitRequest = "s";
-        break;
-      case "hearts":
-        console.log("h");
-        suitRequest = "h";
-        break;
-      case "clubs":
-        console.log("c");
-        suitRequest = "c";
-        break;
-      case "diamonds":
-        console.log("d");
-        suitRequest = "d";
-        break;
-      case "joker":
-        console.log("joker");
 
-        suitRequest = "joker";
-        break;
-      default:
-        suitRequest = "facedown";
-        break;
-    }
     console.log("suitRequest: " + suitRequest);
 
     var cardNumber = [
@@ -63,9 +38,12 @@ $(document).ready(function() {
     console.log("card-" + suitRequest + "&nbsp;" + "card-" + numberRandom);
 
     $("li").click(function(){
-
-        $("#result").removeClass().addClass("card " + "card-" + suitRequest + " " + "card-" + numberRandom);
-
+      switch(suitRequest) {
+        case "joker":
+          return $("#result").removeClass().addClass("card " + "card-" + suitRequest);
+        default:
+          return $("#result").removeClass().addClass("card " + "card-" + suitRequest + " " + "card-" + numberRandom);
+    };
     });
   });
 });
